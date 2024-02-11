@@ -7,5 +7,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
+find_package(FLEX)
+FLEX_TARGET(lexer lexer/lexer.l lexer/lexer.cpp)
+
 add_executable(lexer main.cpp
-                     lexer/lex.yy.cc)
+                     lexer/lexer.cpp)
