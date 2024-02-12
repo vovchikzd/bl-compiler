@@ -12,7 +12,7 @@ KEYS    if|else|while|func|return|print
 DIGIT   [0-9]
 DIGIT1  [1-9]
 OP      [\+\-\*\/\=\>\<]
-ID      [a-zA-Z_]
+ID      [a-zA-Z_][a-zA-Z_0-9]*
 OBR     [\(\{]
 CBR     [\)\}]
 CL      \:
@@ -29,6 +29,7 @@ SCL     \;
 {CBR}             { cout << "closing bracket <" << yytext[0] << ">" << endl; return 1; }
 {CL}              { cout << "colon <"           << yytext[0] << ">" << endl; return 1; }
 {SCL}             { cout << "semicolon <"       << yytext[0] << ">" << endl; return 1; }
+{DIGIT}{ID}*      { cout << "\tERROR <"         << yytext    << ">" << endl; return 1; }
 .                 { cout << "\tUNKNOWN <"       << yytext[0] << ">" << endl; return 1; }
 
 %%
