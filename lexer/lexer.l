@@ -11,7 +11,7 @@ WS     [ \t\n\v]
 DIGIT  [0-9]
 DIGIT1 [1-9]
 OP     [\+\-\=]
-LT     [a-zA-Z]
+LT     [a-zA-Z_]
 
 %%
 
