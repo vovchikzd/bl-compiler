@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 find_package(FLEX REQUIRED)
-flex_target(lexer lexer/lexer.l lexer/lexer.cpp)
+flex_target(lexer lexers/scanner.l lexers/scanner.cpp)
 
 add_executable(lexer main.cpp
-                     lexer/lexer.cpp)
+                     lexers/scanner.cpp)
