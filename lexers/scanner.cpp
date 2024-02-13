@@ -641,52 +641,52 @@ YY_RULE_SETUP
 case 2:
 YY_RULE_SETUP
 #line 24 "lexers/scanner.l"
-{ cout << "keyword <"         << yytext << ">" << endl; return 1; }
+{ yyout << "keyword <"         << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 25 "lexers/scanner.l"
-{ cout << "operator <"        << yytext << ">" << endl; return 1; }
+{ yyout << "operator <"        << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 26 "lexers/scanner.l"
-{ cout << "number <"          << yytext << ">" << endl; return 1; }
+{ yyout << "number <"          << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 27 "lexers/scanner.l"
-{ cout << "ID <"              << yytext << ">" << endl; return 1; }
+{ yyout << "ID <"              << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 28 "lexers/scanner.l"
-{ cout << "opening bracket <" << yytext << ">" << endl; return 1; }
+{ yyout << "opening bracket <" << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 29 "lexers/scanner.l"
-{ cout << "closing bracket <" << yytext << ">" << endl; return 1; }
+{ yyout << "closing bracket <" << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 30 "lexers/scanner.l"
-{ cout << "colon <"           << yytext << ">" << endl; return 1; }
+{ yyout << "colon <"           << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 31 "lexers/scanner.l"
-{ cout << "semicolon <"       << yytext << ">" << endl; return 1; }
+{ yyout << "semicolon <"       << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 32 "lexers/scanner.l"
-{ cout << "\tERROR <"         << yytext << ">" << endl; return 1; }
+{ yyout << "\tERROR <"         << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 33 "lexers/scanner.l"
-{ cout << "\tUNKNOWN <"       << yytext << ">" << endl; return 1; }
+{ yyout << "\tUNKNOWN <"       << yytext << ">" << endl; return 1; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
