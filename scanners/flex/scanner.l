@@ -24,7 +24,7 @@ SCL     \;
 {KEYS}            { yyout << "keyword <"         << yytext << "> length: [" << yyleng << "]\n"; return 1; }
 {OP}              { yyout << "operator <"        << yytext << "> length: [" << yyleng << "]\n"; return 1; }
 {DIGIT1}{DIGIT}*  { yyout << "number <"          << yytext << "> length: [" << yyleng << "]\n"; return 1; }
-{ID}*             { yyout << "ID <"              << yytext << "> length: [" << yyleng << "]\n"; return 1; }
+{ID}              { yyout << "ID <"              << yytext << "> length: [" << yyleng << "]\n"; return 1; }
 {OBR}             { yyout << "opening bracket <" << yytext << "> length: [" << yyleng << "]\n"; return 1; }
 {CBR}             { yyout << "closing bracket <" << yytext << "> length: [" << yyleng << "]\n"; return 1; }
 {CL}              { yyout << "colon <"           << yytext << "> length: [" << yyleng << "]\n"; return 1; }
