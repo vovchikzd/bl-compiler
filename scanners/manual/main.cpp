@@ -1,3 +1,19 @@
+/*
+
+  WS        [ \t\n\v]
+  KEYS      if|else|while|func|return|print
+  DIGIT     [0-9]
+  DIGIT1    [1-9]
+  OP        [\+\-\*\/\=\>\<]
+  ID        [a-zA-Z_][a-zA-Z_0-9]*
+  LFPAR     [\(\{]
+  RGPAR     [\)\}]
+  CL        \:
+  SCL       \;
+  COMMA     \,
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <iterator>
