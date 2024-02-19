@@ -2,10 +2,10 @@
 [ParaCL](paracl.pdf) is a toy language to learn making compilers
 
 ## Several desired goals
-- [ ] my own scanner
-- [ ] my own parser
-- [ ] flex scanner
-- [ ] bison parser
+- [ ] lex source into tokens
+- [ ] parse tokens into AST
+- [ ] compile AST into assembly (since this is only for training goals, x86_64 is enough i think)
+- [ ] ??flex lexer and bison parser??
 
 ## Useful links
 * [Flex](https://github.com/westes/flex)
