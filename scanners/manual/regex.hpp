@@ -1,25 +1,55 @@
 #ifndef MY_REGEX_HPP
 #define MY_REGEX_HPP
 
-#include <vector>
+#include <memory>
 #include <optional>
 #include <string>
+#include <vector>
 
-class Regex {
+enum class StateType {
+  start,
+  regular,
+  accepting,
+};
+
+enum class TransitionType {
+  symbol,
+  epsilon,
+};
+
+struct State final {
+  StateType type;
+  std::optional<TransitionType> tr_type;
+  std::optional<char> tr_sym;
+  std::vector<std::unique_ptr<State>> next;
+};
+
+class Regex final {
   std::string regex_;
   std::string postfix_;
-  State start;
-  State end;
+  std::unique_ptr<State> start;
+  std::unique_ptr<State> end;
 
-  make_postfix(const std::strign& regex) {}
-
-public:
-  Regex() = default;
-
-  Regex(std::string& regex): regex_(regex) {
+  void make_postfix(const std::strign& regex) {
+    /* TODO */
   }
 
-  Regex(char* regex): regex_(regex) {}
+  void thompsons_construct(const std::string& postfix) {
+    /* TODO */
+  }
+
+ public:
+  Regex() = default;
+
+  Regex(std::string& regex) : regex_(regex) {
+    make_postfix(regex_);
+    thompsons_construct(postfix_);
+  }
+
+  Regex(char* regex) : regex_(regex) {
+    make_postfix(regex_);
+    thompsons_construct(postfix_);
+  }
 };
 
 #endif
