@@ -1,5 +1,5 @@
-# ParaCL language compiler
-[ParaCL](paracl.pdf) is a toy language to learn making compilers
+# bl-language language compiler
+bl-language is a toy language from my head to learn how to make compilers
 
 ## Several desired goals
 - [ ] lex source into tokens
