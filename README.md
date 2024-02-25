@@ -1,4 +1,4 @@
-# bl-language language compiler
+# bl-language compiler
 bl-language is a toy language from my head to learn how to make compilers
 
 ## Several desired goals
