@@ -6,6 +6,10 @@
 #include <string>
 #include <vector>
 
+enum class TokenType {
+  /* for future tokenization */
+};
+
 enum class StateType {
   start,
   regular,
@@ -17,38 +21,60 @@ enum class TransitionType {
   epsilon,
 };
 
-struct State final {
-  StateType type;
-  std::optional<TransitionType> tr_type;
-  std::optional<char> tr_sym;
-  std::vector<std::unique_ptr<State>> next;
+struct State_ final {
+  StateType type_;
+  std::optional<TokenType> token_;
+  std::optional<TransitionType> tr_type_;
+  std::optional<char> tr_sym_;
+  std::vector<std::unique_ptr<State_>> next_;
+};
+
+class nfa_automaton_ final {
+  std::unique_ptr<State_> start_;
+  std::unique_ptr<State_> end_;
+  /* TODO */
+};
+
+class dfa_automaton_ final {
+  /* TODO */
 };
 
 class Regex final {
   std::string regex_;
   std::string postfix_;
-  std::unique_ptr<State> start;
-  std::unique_ptr<State> end;
+  std::optional<dfa_automaton_> dfa_;
 
-  void make_postfix(const std::strign& regex) {
+  void make_postfix_() {
     /* TODO */
   }
 
-  void thompsons_construct(const std::string& postfix) {
-    /* TODO */
-  }
-
- public:
+public:
   Regex() = default;
-
-  Regex(std::string& regex) : regex_(regex) {
-    make_postfix(regex_);
-    thompsons_construct(postfix_);
+  
+  Regex(const std::string& regex): regex_(regex) {
+    make_postfix_();
+    nfa_ = nfa_automaton_(postfix_);
+    // dfa_ = dfa_automaton_(nfa_);
   }
 
-  Regex(char* regex) : regex_(regex) {
-    make_postfix(regex_);
-    thompsons_construct(postfix_);
+  Regex(const char* regex): regex_(regex) {
+    make_postfix_();
+    nfa_ = nfa_automaton_(postfix_);
+    // dfa_ = dfa_automaton_(nfa_);
+  }
+  
+  void compile(const std::string& regex) {
+    regex_ = regex;
+    make_postfix_();
+    nfa_ = nfa_automaton_(postfix_);
+    // dfa_ = dfa_automaton_(nfa_);
+  }
+
+  void compile(const char* regex) {
+    regex_ = regex;
+    make_postfix_();
+    nfa_ = nfa_automaton_(postfix_);
+    // dfa_ = dfa_automaton_(nfa_);
   }
 };
 
