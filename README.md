@@ -1,5 +1,5 @@
-# bl-language compiler
-bl-language is a toy language from my head to learn how to make compilers
+# bl language compiler
+bl is a toy language from my head to learn how to make compilers
 
 ## Several desired goals
 - [ ] lex source into tokens
