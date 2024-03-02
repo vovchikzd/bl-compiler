@@ -55,8 +55,10 @@ class Regex final {
 
       if (index < end - 1) {
         char ahead = regex_[index + 1];
-        if (ahead == '*' || ahead == '?' || ahead == '+' || ahead == '|' ||
-            ahead == ')') { continue; }
+        if (ahead == '*' || ahead == '?' || ahead == '+' || ahead == '|'
+            || ahead == ')') {
+          continue;
+        }
         result += '.';
       }
     }
@@ -67,35 +69,25 @@ class Regex final {
   size_t operator_precedence_(char ch) {
     size_t result;
     switch (ch) {
-      case '|':
-        result = 0;
-        break;
-      case '.':
-        result = 1;
-        break;
-      case '?':
-        result = 2;
-        break;
-      case '*':
-        result = 2;
-        break;
-      case '+':
-        result = 2;
-        break;
+      case '|': result = 0; break;
+      case '.': result = 1; break;
+      case '?': result = 2; break;
+      case '*': result = 2; break;
+      case '+': result = 2; break;
     }
     return result;
   }
 
   void make_postfix_() {
     std::string explicit_concat = insert_explicit_concat_operator_();
-    std::string result = "";
-    std::string stack = "";
+    std::string result          = "";
+    std::string stack           = "";
 
     for (char& ch: explicit_concat) {
       if (ch == '.' || ch == '|' || ch == '*' || ch == '?' || ch == '+') {
-
-        while (!stack.empty() && stack.back() != '(' &&
-               operator_precedence_(stack.back()) >= operator_precedence_(ch)) {
+        while (!stack.empty() && stack.back() != '('
+               && operator_precedence_(stack.back())
+                      >= operator_precedence_(ch)) {
           result += stack.back();
           stack.pop_back();
         }
@@ -104,7 +96,6 @@ class Regex final {
       } else if (ch == '(') {
         stack += ch;
       } else if (ch == ')') {
-
         while (!stack.empty() && stack.back() != '(') {
           result += stack.back();
           stack.pop_back();
@@ -126,7 +117,7 @@ class Regex final {
 
 public:
   Regex() = default;
-  
+
   Regex(const std::string& regex): regex_(regex) {
     make_postfix_();
     // nfa_ = nfa_automaton_(postfix_);
@@ -138,7 +129,7 @@ public:
     // nfa_ = nfa_automaton_(postfix_);
     // dfa_ = dfa_automaton_(nfa_);
   }
-  
+
   void compile(const std::string& regex) {
     regex_ = regex;
     make_postfix_();
